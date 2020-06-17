@@ -1,2 +1,2 @@
-# LoadThirdSOBaseDemo
- AndroidStuido加载其他SO文件.基础模板
+# LLoadSOBaseDemo
+ AndroidStuido加载SO文件.基础模板

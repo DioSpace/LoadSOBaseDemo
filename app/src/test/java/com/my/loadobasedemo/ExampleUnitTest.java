@@ -1,4 +1,4 @@
-package com.my.loadthirdsobasedemo;
+package com.my.loadobasedemo;
 
 import org.junit.Test;
 

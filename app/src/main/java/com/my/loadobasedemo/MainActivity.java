@@ -1,4 +1,4 @@
-package com.my.loadthirdsobasedemo;
+package com.my.loadobasedemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.my.ndkdynamicdemo.util.MyUtil;
 
 public class MainActivity extends AppCompatActivity {
-
 
     private TextView showText;
     private MyUtil myUtil;
