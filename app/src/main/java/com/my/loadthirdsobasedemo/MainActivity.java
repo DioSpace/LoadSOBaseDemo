@@ -3,26 +3,45 @@ package com.my.loadthirdsobasedemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
-import com.m4399.framework.helpers.AppNativeHelper;
+import com.my.ndkdynamicdemo.util.MyUtil;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private TextView showText;
+    private MyUtil myUtil;
+    private com.my.ndkstaticdemo.util.MyUtil myUtil_static;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        showText = findViewById(R.id.textBloardId);
+        myUtil = new MyUtil();
+        myUtil_static = new com.my.ndkstaticdemo.util.MyUtil();
     }
-    public void load_encrypt_so(View view) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String tmp = AppNativeHelper.getMd5("aaaa");
-                System.out.println("result:\n" + tmp);
-                Log.e("t1", "md5:\n" + tmp);
-            }
-        }).start();
+
+    public void click2_static(View view) {
+        String str = myUtil_static.stringFromJNI2();
+        showText.setText(str);
     }
+
+    public void click3_static(View view) {
+        String str = myUtil_static.handleString("param string");
+        showText.setText(str);
+    }
+
+    public void click1_dynamic(View view) {
+        String result = myUtil.getHello();
+        showText.setText(result);
+    }
+
+    public void click2_dynamic(View view) {
+        int result = myUtil.meaningOfTheUniverse();
+        showText.setText("返回值：" + result);
+    }
+
 }
